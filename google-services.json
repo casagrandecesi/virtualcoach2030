@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "192297832871",
+    "project_id": "virtual-coach-2030",
+    "storage_bucket": "virtual-coach-2030.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192297832871:android:fbe113cbce1ff425752682",
+        "android_client_info": {
+          "package_name": "it.edu.casagrandecesi.virtualcoach2030"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "192297832871-kjbus519j7gkh40o0rfbtbngu9akle4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA__IJiR69fgiq_iPuTMXHtAVrLja3h64w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "192297832871-kjbus519j7gkh40o0rfbtbngu9akle4m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/onsenui.css">
+    <link rel="stylesheet" href="css/onsen-css-components.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <script src="cordova.js"></script>
+    <script src="js/onsenui.min.js"></script>
+    <title>Virtual Coach 2030</title>
+    <style>
+        .page__background {
+            background-color: #d2f8d2;
+        }
+
+        #pageSplash .page__background {
+            background-image: url("img/splash.png");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        #pageResultKO .page__background {
+            background-image: url("img/ko.png");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        #pageResultOK .page__background {
+            background-image: url("img/ok.png");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        #pageAspetta .page__background {
+            background-image: url("img/aspetta.png");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        #dacontrollare {
+            width: 100%;
+            font-size: 200%;
+            margin-bottom: 1em;
+        }
+
+        .illustrazione {
+            height: 13em;
+        }
+
+        .errore {
+            background-color: #eabbbb;
+        }
+
+        #parere {
+            padding: 1em;
+        }
+
+        #countdown {
+            font-size: 500%;
+        }
+
+        .button {
+            display: block;
+            background-color: #276221;
+        }
+
+        #textTutor {
+            margin: 2em;
+        }
+
+        #imgTutor {
+            height: 80%;
+            margin-top: 1em;
+            border: 1px solid grey;
+        }
+
+        .descrizione2030 {
+            font-size: 2em;
+            text-transform: none;
+        }
+
+        .goal2030 {
+            width: 5em;
+        }
+
+        #statsDiv {
+            font-size: 5em;
+            text-align: center;
+        }
+
+        #statsDiv img {
+            width: 2em;
+        }
+
+        #statsDiv table {
+            width: 100%;
+        }
+
+        #statsDiv table td.right {
+            text-align: right;
+            padding: 0.2em;
+        }
+
+        #buttonFeedbackKO {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <ons-navigator swipeable id="myNavigator" page="pageSplash.html"></ons-navigator>
+
+    <template id="pageSplash.html">
+        <ons-page id="pageSplash">
+        </ons-page>
+    </template>
+
+    <template id="pageTutorial.html">
+        <ons-page id="pageTutorial" style="text-align: center">
+            <ons-toolbar>
+                <div class="center">Virtual Coach 2030 - Tutorial</div>
+            </ons-toolbar>
+            <img id="imgTutor" src="img/screen01.png">
+            <p id="textTutor">1) Ogni lunedì verifica la tua challange settimanale: dovrai superarla entro la domenica successiva.</p>
+            <ons-button id="buttonTutor">Avanti</ons-button>
+        </ons-page>
+    </template>
+
+    <template id="pageAbout.html">
+        <ons-page id="pageAbout">
+            <div style="text-align: center; margin-top: 5em">
+                <img src="img/logo_trasp.png" style="height: 150px">
+                <img src="img/agenda2030.png" style="height: 150px">
+                <h1>Virtual Coach 2030</h1>
+                <p>Copyright 2023 I.I.S. "Casagrande-Cesi", Terni</p>
+                <img src="img/cc.png" style="height: 150px; margin-top: 2em; margin-bottom: 5em">
+                <ons-button id="buttonAboutOk" modifier="large cta">OK</ons-button>
+            </div>
+        </ons-page>
+    </template>
+
+    <template id="pageChallenge.html">
+        <ons-page id="pageChallenge">
+            <ons-toolbar>
+                <button id="buttonStats" class="toolbar-button">
+                    <i class="fa fa-trophy" style="font-size:17px"></i>
+                </button>
+                <div class="center">Virtual Coach 2030</div>
+                <div class="toolbar__right">
+                    <ons-toolbar-button id="buttonAbout">About...</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+
+            <div style="text-align: center">
+                <img src="img/sollevamentopesi.png" class="illustrazione">
+                <h1 id="titoloChallenge">Questa settimana...</h1>
+                <h3 id="weekChallenge">Caricamento...</h3>
+                <img id="immagineChallenge" class="goal2030" src="img/load.gif">
+                <p id="descrizioneChallenge" class="descrizione2030"></p>
+            </div>
+        </ons-page>
+    </template>
+
+    <template id="pageFeedback.html">
+        <ons-page id="pageFeedback">
+            <ons-toolbar>
+                <div class="center">Virtual Coach 2030</div>
+                <div class="toolbar__right">
+                    <ons-toolbar-button id="buttonAboutFeedback">About...</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <div id="feedback" style="text-align: center">
+                <h1>Sei riuscito a superare la challenge?</h1>
+                <h3 id="weekFeedback">Caricamento...</h3>
+                <img id="immagineFeedback" class="goal2030" src="img/load.gif">
+                <p id="descrizioneFeedback" class="descrizione2030"></p>
+                <ons-button id="buttonFeedbackOK" modifier="large" style="margin-bottom: 1em">Sì!</ons-button>
+                <ons-button id="buttonFeedbackKO" modifier="large">Purtroppo no...</ons-button>
+            </div>
+        </ons-page>
+    </template>
+
+    <template id="pageStats.html">
+        <ons-page id="pageStats">
+            <ons-toolbar>
+                <button id="buttonStatsBack" class="toolbar-button">
+                    <i class="fa fa-backward" style="font-size:17px"></i>
+                </button>
+                <div class="center">Virtual Coach 2030</div>
+                <div class="toolbar__right">
+                    <ons-toolbar-button id="buttonAboutStats">About...</ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <div style="text-align: center">
+                <h1>Statistiche</h1>
+                <h3>Quante challange sei riuscito a superare?</h3>
+            </div>
+            <div id="statsDiv">
+            </div>
+        </ons-page>
+    </template>
+
+    <template id="pageResultOK.html">
+        <ons-page id="pageResultOK">
+            <div class="toast">
+                <div class="toast__message">La prossima challange sarà disponibile a partire da <span
+                        id="nextChallengeOK"></span></span></div>
+            </div>
+        </ons-page>
+    </template>
+
+    <template id="pageResultKO.html">
+        <ons-page id="pageResultKO">
+            <div class="toast">
+                <div class="toast__message">La prossima challange sarà disponibile a partire da <span
+                        id="nextChallengeKO"></span></span></div>
+            </div>
+        </ons-page>
+    </template>
+
+    <template id="pageAspetta.html">
+        <ons-page id="pageAspetta">
+            <div class="toast">
+                <div class="toast__message">La prossima challange sarà disponibile a partire da <span
+                        id="nextChallengeAspetta"></span></span></div>
+            </div>
+        </ons-page>
+    </template>
+
+    <script src="js/challenge.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+{
+  "name": "it.edu.casagrandecesi.virtualcoach2030",
+  "displayName": "VirtualCoach2030",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^11.0.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-plugin-file": "^7.0.0",
+    "cordova-plugin-firebase-messaging": "^7.0.4",
+    "cordova-plugin-media": "^6.1.0",
+    "cordova-support-android-plugin": "^2.0.4"
+  },
+  "cordova": {
+    "platforms": [
+      "android",
+      "browser"
+    ],
+    "plugins": {
+      "cordova-plugin-firebase-messaging": {},
+      "cordova-plugin-media": {}
+    }
+  },
+  "dependencies": {
+    "cordova": "^11.1.0"
+  }
+}

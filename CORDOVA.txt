@@ -1,0 +1,14 @@
+Piattaforma Android (firebase messaging richiede >= 11)
+
+cordova platform add android@11.0.0
+
+
+Plugin utilizzati:
+
+cordova plugin add cordova-plugin-media
+cordova plugin add cordova-plugin-firebase-messaging
+
+
+Guide:
+
+https://www.npmjs.com/package/cordova-plugin-firebase-messaging
