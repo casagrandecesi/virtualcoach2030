@@ -5,7 +5,7 @@
 # Virtual Coach 2030
 > App per imparare a vivere in modo sostenbibile sviluppata dagli studenti dell'I.I.S. "Casagrande-Cesi" di Terni
 
-[![App Lab](https://img.shields.io/badge/code.org-applab-blue.svg)](https://code.org/educate/applab)
+[![Apache Cordova](https://img.shields.io/badge/apache-cordova-blue.svg)](https://cordova.apache.org/)
 [![License](https://img.shields.io/github/license/casagrandecesi/virtualcoach2030.svg)](https://opensource.org/licenses/MIT)
 [![GitHub issues](https://img.shields.io/github/issues/casagrandecesi/virtualcoach2030.svg)](https://github.com/casagrandecesi/virtualcoach2030/issues)
 
@@ -23,7 +23,7 @@ L'app è stata sviluppata dalle classi II A, IV H e V H (A.S. 2022/23) dell'I.I.
 
 ## Tecnologia
 
-L'app Virtual Coach 2030 è stata sviluppata in ambiente [App Lab](https://code.org/educate/applab). Successivamente è stata esportata come codice HTML, CSS e JavaScript ed inserita all'interno di un progetto [Apache Cordova](https://cordova.apache.org/) per poter essere compilata per Android ed iOS.
+L'app Virtual Coach 2030 è stata sviluppata in ambiente [Apache Cordova](https://cordova.apache.org/) e fa uso dell'ottima libreria [Onsen UI](https://onsen.io/) per la gestione dell'interfaccia grafica.
 
 ## Licenza
 
