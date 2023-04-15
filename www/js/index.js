@@ -51,7 +51,7 @@ function prettyString(d) {
 
 function getToday() {
     return new Date();
-    //return new Date(Date.parse("2023-04-17"));
+    //return new Date(Date.parse("2023-05-29"));
 }
 
 function maxChallenge() {
@@ -88,6 +88,7 @@ function estraiChallenge() {
     store.setItem("currentChallenge", challenge);
     store.setItem("currentGoal", goal);
     store.setItem("challengeArchive", JSON.stringify(archive));
+    store.removeItem("challengeResult");
     return [goal, challenge];
 }
 
@@ -245,7 +246,7 @@ function initPageResultKO() {
     let today = getToday();
     today.setDate(today.getDate() + 1);
     nextChallengeKO.innerHTML = prettyString(today);
-    let media = new Media("snd/positive.mp3");
+    let media = new Media("snd/negative.mp3");
     media.play();
 }
 
@@ -253,7 +254,7 @@ function initPageResultOK() {
     let today = getToday();
     today.setDate(today.getDate() + 1);
     nextChallengeOK.innerHTML = prettyString(today);
-    let media = new Media("snd/negative.mp3");
+    let media = new Media("snd/positive.mp3");
     media.play();
 }
 
